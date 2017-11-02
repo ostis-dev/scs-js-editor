@@ -1,23 +1,8 @@
-import { scsLexer } from "./syntax/scsLexer"
-import { scsParser } from "./syntax/scsParser"
+import { scsLexer } from './syntax/scsLexer';
+import { scsParser } from './syntax/scsParser';
+import { ParseCallbacks, ParseError, TokenLocation } from './scs_parser_data';
+
 import { ANTLRInputStream, CommonTokenStream, ParserErrorListener } from 'antlr4ts';
-
-interface ParseError {
-    line: number,
-    offset: number,
-    len: number,
-    msg: string
-};
-
-interface TokenLocation {
-    line: number,
-    offset: number,
-    len: number
-};
-
-interface ParseCallbacks {
-    onParseError: (docUri: string, err: ParseError) => void;
-};
 
 class ErrorListener implements ParserErrorListener {
     
@@ -54,7 +39,7 @@ export class SCsTriplesParser {
             parser.buildParseTree = false;
             parser.parserCallbacks = {
                 onParseError: this.onParseError,
-                onSystemIdtf: this.onSystemIdtf,
+                onAddIdtf: this.onAddIdtf,
             };
 
             parser.addErrorListener(new ErrorListener(function(err) {
@@ -73,7 +58,7 @@ export class SCsTriplesParser {
         // TODO: implement me
     }
 
-    private onSystemIdtf(alias: string, loc: TokenLocation) {
+    private onAddIdtf(idtf: string, loc: TokenLocation) {
         // TODO: implement me
     }
 };

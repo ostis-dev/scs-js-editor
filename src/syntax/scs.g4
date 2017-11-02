@@ -9,10 +9,13 @@ tokens
 {
 }
 
+@header {
+import { ParseCallbacks } from '../scs_parser_data';
+}
+
 @parser::members {
 
 public parserCallbacks:any = null;
-public docUri:string = '';
 
 private makeLocation(obj) {
   return {
@@ -24,7 +27,7 @@ private makeLocation(obj) {
 
 private makeError(token, msg) {
   
-  this.parserCallbacks.onAppendError({
+  this.parserCallbacks.onParseError({
     line: token.line - 1,
     offset: token.pos,
     len: token.text.length,
@@ -101,7 +104,7 @@ idtf_system
   : IdtfSystem
     {
       const loc = this.makeLocation($IdtfSystem);
-      this.parserCallbacks.onSystemIdtf($IdtfSystem.text, loc);
+      this.parserCallbacks.onAddIdtf($IdtfSystem.text, loc);
     }
   | '...'
   ;

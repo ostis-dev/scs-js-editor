@@ -10,7 +10,7 @@ tokens
 }
 
 @header {
-import { ParseCallbacks } from '../scs_parser_data';
+import { SCsParseCallbacks } from '../scs_parser_data';
 }
 
 @parser::members {

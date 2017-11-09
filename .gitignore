@@ -1,13 +1,11 @@
 node_modules/
 build/
-package-lock\.json
 
-src/syntax/\.antlr/
+package-lock.json
+.vscode
 
-src/syntax/scs\.tokens
-
-src/syntax/scsLexer\.tokens
-
-src/syntax/scsLexer\.ts
-
-src/syntax/scsParser\.ts
+src/syntax/.antlr/
+src/syntax/scs.tokens
+src/syntax/scsLexer.tokens
+src/syntax/scsLexer.ts
+src/syntax/scsParser.ts

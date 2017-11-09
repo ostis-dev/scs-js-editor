@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run compile && webpack --progress --colors",
-    "compile": "antlr4ts -no-listener -Dlanguage=JavaScript src/syntax/scs.g4",
+    "compile": "cd src/syntax && antlr4ts -no-listener scs.g4",
     "dev": "tsc -watch -p ./",
     "test": "npm run build && mocha",
     "watch": "webpack --progress --colors --watch"

@@ -22,11 +22,17 @@ class ErrorListener implements ParserErrorListener {
     }
 };
 
+export type AliasLocationsMap = { [alias: string]: SCsTokenLocation[] };
+
 export class SCsTriplesParser {
+
+    private _aliases: AliasLocationsMap = {};
 
     constructor() {
 
     }
+
+    public get ParsedAliases() : AliasLocationsMap { return this._aliases; }
 
     public Parse(text: string) : boolean {
 
@@ -38,8 +44,8 @@ export class SCsTriplesParser {
             
             parser.buildParseTree = false;
             parser.parserCallbacks = {
-                onParseError: this.onParseError,
-                onAddIdtf: this.onAddIdtf,
+                onParseError: this.onParseError.bind(this),
+                onAddIdtf: this.onAddIdtf.bind(this),
             };
 
             parser.addErrorListener(new ErrorListener(function(err) {
@@ -59,6 +65,11 @@ export class SCsTriplesParser {
     }
 
     private onAddIdtf(idtf: string, loc: SCsTokenLocation) {
-        // TODO: implement me
+        let locs: SCsTokenLocation[] = this._aliases[idtf];
+        if (locs) {
+            locs.push(loc);
+        } else {
+            this._aliases[idtf] = [ loc ];
+        }
     }
 };

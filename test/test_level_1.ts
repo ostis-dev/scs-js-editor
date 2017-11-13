@@ -1,5 +1,5 @@
-const assert = require('assert');
-const scs = require('../build/scs');
+import * as scs from '../src/index';
+import { assert } from 'chai';
 
 describe('SCs-level 1 parsing', function() {
     describe('one triple', function() {

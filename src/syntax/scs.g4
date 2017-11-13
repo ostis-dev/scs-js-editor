@@ -20,7 +20,7 @@ public parserCallbacks:any = null;
 private makeLocation(obj) {
   return {
     line: obj.line,
-    offset: obj.pos,
+    offset: obj.charPositionInLine,
     len: obj.text.length
   };
 };

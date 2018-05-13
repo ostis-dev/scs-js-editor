@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "monaco-editor": "file:./node_modules/monaco-editor/monaco.d.ts"
+  }
+}

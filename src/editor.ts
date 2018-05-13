@@ -9,8 +9,18 @@ export class SCsEditor {
     this._container = container;
     this._editor = editor.create(this._container, {
       language: kLangName,
-      value: value,
       theme: theme
     });
+
+    if (value)
+      this.content = value;
+  }
+
+  public get content() : string {
+    return this._editor.getValue();
+  }
+
+  public set content(newValue: string) {
+    this._editor.setValue(newValue);
   }
 };

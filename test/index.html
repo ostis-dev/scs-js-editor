@@ -14,11 +14,13 @@
         height: 720px;
       }
     </style>
+
   </head>
   <body>
     <div class="test-container">
       <div id="editor-container" class="scs-editor-container">
       </div>
+      <input type="button" value="Print" onclick="window.printContent()">
     </div>
 
     <script>
@@ -26,7 +28,11 @@
         SCsEditor.SCsInitGlobal();
         window.editor = new SCsEditor.SCsEditor(
           document.getElementById('editor-container'),
-          testSCs)
+          testSCs);
+
+        window.printContent = function() {
+          console.log(window.editor.content);
+        }
       });
     </script>
   </body>

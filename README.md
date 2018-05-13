@@ -1,6 +1,6 @@
 ## Info
 
-![Screenshot](docs/screen.png)
+![Screenshot](https://github.com/deniskoronchik/scs-js/raw/dev/docs/screen.png)
 
 
 ### Usage

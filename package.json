@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Editor for SCs-texts",
   "main": "build/bundle.js",
-  "typings": "src/index.ts",
+  "types": "build/lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",

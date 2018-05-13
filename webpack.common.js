@@ -39,7 +39,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: outputPath,
-    libraryTarget: 'var',
+    libraryTarget: 'umd',
     library: 'SCsEditor'
   },
   node: {

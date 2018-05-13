@@ -1,4 +1,9 @@
-## Usage
+## Info
+
+![Screenshot](docs/screen.png)
+
+
+### Usage
 
 ```
 npm install --save @ostis/scs-js-editor

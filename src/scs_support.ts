@@ -110,7 +110,6 @@ const language = <languages.IMonarchLanguage> {
       { include: '@connectors'},
 
       // identifiers and keywords
-      { regex: /([_]?[.]{0,2})?([a-zA-Z0-9_]+)/, action: { token: 'identifier' } },
       {
         regex: /[a-zA-Z_0-9]\w*/, action: {
           cases: {
@@ -119,6 +118,7 @@ const language = <languages.IMonarchLanguage> {
           }
         }
       },
+      { regex: /([_]?[.]{0,2})?([a-zA-Z0-9_]+)/, action: { token: 'identifier' } },
     ],
 
     brackets: [

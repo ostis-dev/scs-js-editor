@@ -1,4 +1,9 @@
-## Release Notes
+## Usage
 
-### [0.1.0] - Current
-- Implement parser of SCs-texts
+```
+npm install --save @ostis/scs-js-editor
+```
+
+## [0.1.0] Current
+
+ - Support SCs-cod syntax hightlight

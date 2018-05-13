@@ -1,3 +1,3 @@
-export * from './scs_parser';
-export * from './scs_names';
-export * from './scs_parser_data';
+export * from './editor';
+
+export { SCsInitGlobal } from './scs_support';

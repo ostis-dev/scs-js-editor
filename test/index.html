@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>SCs-editor test</title>
+
+    <link rel="stylesheet" type="text/css" href="../src/main.css">
+    
+    <script src="../build/editor.worker.js"></script>
+    <script src="../build/bundle.js"></script>
+    <script src="test-scs.js" charset="utf-8"></script>
+
+    <style>
+      .test-container {
+        width: 1280px;
+        height: 720px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <div id="editor-container" class="scs-editor-container">
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        SCsEditor.SCsInitGlobal();
+        window.editor = new SCsEditor.SCsEditor(
+          document.getElementById('editor-container'),
+          testSCs)
+      });
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "@ostis/scs-js-editor",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Editor for SCs-texts",
   "main": "build/bundle.js",
   "types": "build/lib/index.d.ts",

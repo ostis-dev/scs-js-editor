@@ -9,7 +9,8 @@ export class SCsEditor {
     this._container = container;
     this._editor = editor.create(this._container, {
       language: kLangName,
-      theme: theme
+      theme: theme,
+      automaticLayout: true,
     });
 
     if (value)

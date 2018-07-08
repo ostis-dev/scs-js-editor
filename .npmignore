@@ -1,6 +1,7 @@
 node_modules/
 test/
 build/*.bundle.js
+src/
 
 .gitignore
 tsconfig.json

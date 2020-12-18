@@ -1,4 +1,4 @@
-import { editor, languages, Position } from 'monaco-editor';
+import { CancellationToken, editor, languages, Position } from 'monaco-editor';
 
 export const kLangName: string = 'scs';
 
@@ -30,18 +30,32 @@ export function SCsInitGlobal() {
 function getCompletionProvider() : languages.CompletionItemProvider {
 
   return {
-    provideCompletionItems: function(model: editor.ITextModel, position: Position) : languages.CompletionItem[] {
+    provideCompletionItems: function(model: editor.ITextModel, 
+                                     position: Position,
+                                     context: languages.CompletionContext,
+                                     token: CancellationToken) : languages.ProviderResult<languages.CompletionList> {
       const result: languages.CompletionItem[] = [];
 
+
       kKeywords.forEach((key: string) => {
-        result.push({ label: key, kind: languages.CompletionItemKind.Keyword });
+        result.push({ 
+          label: key, 
+          kind: languages.CompletionItemKind.Keyword, 
+          insertText: key,
+          range: null
+        });
       });
 
       kConnectors.forEach((key: string) => {
-        result.push({ label: key, kind: languages.CompletionItemKind.Reference });
+        result.push({ 
+          label: key, 
+          kind: languages.CompletionItemKind.Reference,
+          insertText: key,
+          range: null
+        });
       });
 
-      return result;
+      return { suggestions: result };
     }
   };
 }

@@ -1,6 +1,6 @@
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 const outputPath = path.resolve(__dirname, 'build');
 
@@ -19,6 +19,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
       }
     ]
   },
@@ -26,23 +38,19 @@ module.exports = {
     new MonacoWebpackPlugin({
       "languages": [],
       "features": [
-        'bracketMatching', 'caretOperations', 'clipboard', 'codelens', 'colorDetector', 'comment', 'contextmenu',
-        'coreCommands', 'cursorUndo', 'find', 'folding', 'format', 'gotoLine', 'hover', 'inPlaceReplace', 'inspectTokens', 'linesOperations', 'links',
-        'parameterHints', 'rename', 'smartSelect', 'snippets', 'suggest', 'wordHighlighter', 'wordOperations'
+        '!accessibilityHelp', '!anchorSelect', '!colorDetector', '!fontZoom', '!multicursor', '!onTypeRename',
+        '!parameterHints', '!quickCommand', '!quickHelp', '!quickOutline', '!referenceSearch',
+        '!toggleHighContrast', '!transpose', '!unusualLineTerminators'
       ]
-    }),
-    new CleanWebpackPlugin(outputPath)
+    })
   ],
   resolve: {
     extensions: [ '.tsx', '.ts', '.js', '.css' ]
   },
+  externalsPresets: { node: true },
   output: {
-    filename: 'bundle.js',
+    filename: 'scs.js',
     path: outputPath,
-    libraryTarget: 'umd',
-    library: 'SCsEditor'
-  },
-  node: {
-    fs: "empty"
+    libraryTarget: 'umd'
   }
 };

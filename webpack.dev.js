@@ -5,5 +5,8 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './build'
+  },
+  optimization: {
+    minimize: false
   }
 });

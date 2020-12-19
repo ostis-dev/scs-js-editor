@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "sourceMap": true,
-    "declaration": true,
-    "outDir": "./lib",
-    //"strict": true
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "outDir": "build/lib",
+    "declaration": true
   }
 }

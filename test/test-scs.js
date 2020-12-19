@@ -7,9 +7,13 @@ sc_node#fruit | sc_edge_main#edge | sc_node#apple;;
 sc_node#fruit | sc_edge_main#... | sc_node#banana;;
 
 sc_node#apple | sc_edge_dcommon#..e | "file://apple.png";;
-/*append edge from nrel_image relation into
-  edge between apple set and it's image*/
+/* append edge from nrel_image relation into
+ * edge between apple set and it's image
+ */
 sc_node#nrel_image | sc_edge_main#... | sc_edge_dcommon#..e;;
+
+// Aliases
+@alias = (node1 -> node2);;
 
 // test level 2
 x 

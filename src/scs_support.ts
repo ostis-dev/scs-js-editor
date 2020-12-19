@@ -61,15 +61,42 @@ function getCompletionProvider() : languages.CompletionItemProvider {
 }
 
 const scsTheme: editor.IStandaloneThemeData = {
-  base: 'vs-dark',
+  base: 'vs',
   inherit: true,
-  colors: {},
+  colors: {
+    "editor.background": "#f8f8f8",
+    "editorCursor.foreground": "#000000",
+    "editor.foreground": "#353535",
+    "editor.lineHighlightBackground": "#f8f8f8",
+    "editor.selectionBackground": "#abdffa",
+    "activityBar.background": "#c3c7cd",
+    "activityBar.foreground": "#000000",
+    "statusBar.background": "#a4a9b2",
+    "statusBar.foreground": "#000000",
+    "statusBar.noFolderBackground": "#a4a9b2",
+    "statusBarItem.hoverBackground": "#cccccc",
+    "editorLineNumber.foreground": "#bbbbbb",
+    "sideBar.background": "#ebedef",
+    "titleBar.activeBackground": "#dfe4e7",
+    "titleBar.activeForeground": "#000000",
+    "list.hoverBackground": "#dbdde0",
+    "list.inactiveSelectionBackground": "#c7cbd1",
+    "editorIndentGuide.background": "#eaeaea"
+  },
   rules: [
-    { token: 'delimiter', foreground: 'e06c75', fontStyle: 'italic' },
-    { token: 'content.internal', foreground: 'F1FA8C', fontStyle: 'italic' },
-    { token: 'content.internal.escape', foreground: 'FFB86C', fontStyle: 'italic' },
-    { token: 'keyword', foreground: 'FF79C6' },
-    { token: 'identifier', foreground: '61afef' }
+    { token: 'delimiter', foreground: '535353', fontStyle: 'italic' },
+    { token: 'delimiter.curly', foreground: '535353', fontStyle: 'italic' },
+    { token: 'delimiter.square', foreground: '535353', fontStyle: 'italic' },
+    { token: 'delimiter.parenthesis', foreground: '535353', fontStyle: 'italic' },
+    { token: 'content.internal', foreground: 'e88501', fontStyle: 'italic' },
+    { token: 'content.internal.escape', foreground: 'e88501' },
+    { token: 'alias', foreground: 'e88501', fontStyle: 'bold' },
+    { token: 'keyword', foreground: '386ac3' },
+    { token: 'identifier', foreground: 'e06c75' },
+    { token: 'comment', foreground: '10a567'},
+    { token: 'string', foreground: 'e88501' },
+    { token: 'operators', foreground: '535353'},
+    { token: 'punctuation', foreground: '535353'},
   ]
 };
 
@@ -132,6 +159,7 @@ const language = <languages.IMonarchLanguage> {
           }
         }
       },
+      { regex: /@([a-zA-Z0-9_]+)/, action: { token: 'alias' } },
       { regex: /([_]?[.]{0,2})?([a-zA-Z0-9_]+)/, action: { token: 'identifier' } },
     ],
 
